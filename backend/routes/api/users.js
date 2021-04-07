@@ -15,7 +15,7 @@ let users = [
     },
     {
         id: 3,
-        name: 'dan',
+        name: 'danny',
         email: 'dan@gmail.com',
     },
 ]
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     }
     newUser.id = uuid.v4()
     users.push(newUser)
-    res.json(users)
+    res.json(newUser)
     
 })
 
