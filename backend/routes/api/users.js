@@ -61,7 +61,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     // const foundUser = users.find(user => user.id===parseInt(req.params.id))
     console.log(parseInt(req.params.id))
-    users.filter(user => user.id !== parseInt(req.params.id))
+    users = users.filter(user => user.id !== parseInt(req.params.id))
     res.json(users)
 })
 
