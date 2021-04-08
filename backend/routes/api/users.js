@@ -42,8 +42,8 @@ router.post('/', (req, res) => {
 //Update user 
 router.put('/:id', (req, res) => {
     // const foundUser = users.find(user => user.id===parseInt(req.params.id))
-    
-    users.map(user => {
+    console.log(req.body)
+    users = users.map(user => {
         if (user.id===parseInt(req.params.id)){
             if (req.body.name){
                 user.name = req.body.name
@@ -54,7 +54,7 @@ router.put('/:id', (req, res) => {
         }
         return user
     })
-    console.log(users)
+    // console.log(users)
     res.json(users)
 })
 
@@ -62,7 +62,7 @@ router.delete('/:id', (req, res) => {
     // const foundUser = users.find(user => user.id===parseInt(req.params.id))
     console.log(parseInt(req.params.id))
     users = users.filter(user => user.id !== parseInt(req.params.id))
-    res.json(users)
+    res.json({msg: 'success'})
 })
 
 module.exports = router
