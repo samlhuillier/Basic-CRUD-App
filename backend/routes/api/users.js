@@ -2,23 +2,7 @@ const express = require('express')
 const uuid = require('uuid')
 const router = express.Router()
 
-let users = [
-    {
-        id: 1,
-        name: 'sam',
-        email: 'sam@gmail.com',
-    },
-    {
-        id: 2,
-        name: 'jim',
-        email: 'jim@gmail.com',
-    },
-    {
-        id: 3,
-        name: 'danny',
-        email: 'dan@gmail.com',
-    },
-]
+let users = []
 //get all users:
 router.get('/', (req, res) => {
     res.json(users)
@@ -44,7 +28,7 @@ router.put('/:id', (req, res) => {
     // const foundUser = users.find(user => user.id===parseInt(req.params.id))
     console.log(req.body)
     users = users.map(user => {
-        if (user.id===parseInt(req.params.id)){
+        if (user.id==req.params.id){
             if (req.body.name){
                 user.name = req.body.name
             }
@@ -60,8 +44,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     // const foundUser = users.find(user => user.id===parseInt(req.params.id))
-    console.log(req.params.id)
-    console.log(users)
+
     users = users.filter(user => user.id !=req.params.id)
     res.json({msg: 'success'})
 })
